@@ -1,42 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet"  href="/style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="board"></div>
+    <script>
+      const board = document.querySelector(".board");
 
-<div class="board">
-    <div>
-        <H1>Доска</H1>
-    </div>
-    <div class="row">
-    <div class="cell cell--white"></div>
-    <div class="cell cell--black"></div>
-    <div class="cell cell--white"></div>
-    <div class="cell cell--black"></div>
-    </div>
-    <div class="row">
-        <div class="cell cell--black"></div>
-        <div class="cell cell--white"></div>
-        <div class="cell cell--black"></div>
-        <div class="cell cell--white"></div>
-        </div>
-    <div class="row">
-            <div class="cell cell--white"></div>
-            <div class="cell cell--black"></div>
-            <div class="cell cell--white"></div>
-            <div class="cell cell--black"></div>
-            </div>
-    <div class="row">
-                <div class="cell cell--black"></div>
-                <div class="cell cell--white"></div>
-                <div class="cell cell--black"></div>
-                <div class="cell cell--white"></div>
-                </div>
-</div>
-</body>
+      for (let v = 0; v < 8; v++) {
+        const row = document.createElement("div");
+        row.className = "row";
+        if (v % 2 == 0) {
+          for (let i = 0; i < 8; i++) {
+            const cell = document.createElement("div");
+            if (i % 2 == 0) {
+              cell.className = "cell cell--black";
+            } else {
+              cell.className = "cell cell--white";
+            }
+            row.appendChild(cell);
+          }
+        } else {
+          for (let i = 0; i < 8; i++) {
+            const cell = document.createElement("div");
+            if (i % 2 == 0) {
+              cell.className = "cell cell--white";
+            } else {
+              cell.className = "cell cell--black";
+            }
+            row.appendChild(cell);
+          }
+        }
+        board.appendChild(row);
+      }
+    </script>
+  </body>
 </html>
